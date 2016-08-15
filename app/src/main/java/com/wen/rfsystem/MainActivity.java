@@ -129,8 +129,21 @@ public class MainActivity extends AppCompatActivity {
         datePickerDialog.show();
     }
 
+    public void goRes(View v){
+        Intent it = new Intent(MainActivity.this, resDetail.class);
+        startActivity(it);
+    }
+
+    public void goCus(View v){
+        Intent it = new Intent(MainActivity.this, cusDetail.class);
+        startActivity(it);
+    }
 
 
+    public void goSet(View v){
+        Intent it = new Intent(MainActivity.this, setting.class);
+        startActivity(it);
+    }
 }
 
 

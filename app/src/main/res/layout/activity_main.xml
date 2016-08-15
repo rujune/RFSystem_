@@ -29,21 +29,25 @@
         <ImageButton
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:id="@+id/imageButton"
+            android:id="@+id/resButton"
             android:layout_gravity="center_horizontal"
-            android:onClick="goRes" />
+            android:onClick="goRes"
+            android:src="@drawable/clean" />
 
         <ImageButton
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:id="@+id/imageButton2"
+            android:id="@+id/cusButton"
             android:layout_gravity="right"
-            android:onClick="goCus" />
+            android:onClick="goCus"
+            android:src="@drawable/person" />
 
         <ImageButton
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:id="@+id/imageButton3" />
+            android:id="@+id/imageButton3"
+            android:src="@drawable/set"
+            android:onClick="goSet" />
 
     </LinearLayout>
 

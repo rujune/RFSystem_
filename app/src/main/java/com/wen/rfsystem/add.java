@@ -29,7 +29,6 @@ public class add extends AppCompatActivity {
          EditText tel = (EditText) findViewById(R.id.telEDText);
          EditText PS = (EditText) findViewById(R.id.PSEDText);
 
-
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date dt = null;
         try {
@@ -71,10 +70,6 @@ public class add extends AppCompatActivity {
         Log.d("resid", String.valueOf(resid));
 
     }
-
-
-
-
 
     public String getDateTime(){
         SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
