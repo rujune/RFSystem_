@@ -160,7 +160,7 @@ public class SFsysDAOImp implements SFsysDAO{
         ArrayList<reserve> mylist = new ArrayList<>();
 
         Cursor c = db.rawQuery("Select * from reserve", null);
-        SimpleDateFormat sdf = new SimpleDateFormat("FFF MMM dd HH:mm:ss 'GMT' yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss 'GMT' yyyy",Locale.TAIWAN);
 
         if (c.moveToFirst())
         {
@@ -191,7 +191,7 @@ public class SFsysDAOImp implements SFsysDAO{
     public List getAllcuserve() {
         ArrayList<customer> mylist = new ArrayList<>();
         Cursor c = db.rawQuery("Select * from customer", null);
-        SimpleDateFormat sdf = new SimpleDateFormat("FFF MMM dd HH:mm:ss 'GMT' yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss 'GMT' yyyy");
         if (c.moveToFirst())
         {
 

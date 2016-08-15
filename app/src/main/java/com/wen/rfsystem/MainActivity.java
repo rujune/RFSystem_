@@ -66,9 +66,12 @@ public class MainActivity extends AppCompatActivity{
         SFsysDAO dao = new SFsysDAOImp(MainActivity.this);
          mylist = dao.getAllreserve();
         for (reserve s : mylist)
-        {
+        {   Log.d("PS:",s.PS);
+            Log.d("PS1:", String.valueOf((s._id)));
+            Log.d("PS2:",dao.checkcus(s._id).toString());
+            Log.d("PS3:",dao.checkcus(s._id).tel);
+           // disp.add(dao.checkcus(s._id).tel);
             disp.add(s.PS);
-            Log.d("PS:",s.PS);
         }
 
         adapter = new ArrayAdapter<String>( MainActivity.this,
