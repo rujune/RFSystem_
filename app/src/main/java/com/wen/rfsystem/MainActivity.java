@@ -23,7 +23,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity{
 
     ArrayList<String> disp = new ArrayList<>();
     ListView lv;

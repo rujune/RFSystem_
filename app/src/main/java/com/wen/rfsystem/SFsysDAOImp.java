@@ -126,25 +126,26 @@ public class SFsysDAOImp implements SFsysDAO{
         ArrayList<reserve> mylist = new ArrayList<>();
 
         Cursor c = db.rawQuery("Select * from reserve", null);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 
         if (c.moveToFirst())
         {
+
+
             do {
                 Date dt = null;
                 try {
+                    Log.d("ERR res.getS(6):",c.getString(6));
                     dt = sdf.parse(c.getString(6));
                 } catch (ParseException e) {
                     e.printStackTrace();
-                    Log.d("ERR","日期轉換錯誤~");
+                    Log.d("ERR","IMP-getAllreserve-日期轉換錯誤~");
                 }
-
-
 
                 reserve r = new reserve(c.getInt(1),c.getInt(2),c.getInt(3),
                         (c.getInt(4) == 1)? true : false,(c.getInt(5) == 1)? true : false,
-                         dt,
-                         c.getString(7),c.getString(8)  );
+                        dt,
+                        c.getString(7),c.getString(8));
                 r._id=c.getInt(0);
                 mylist.add(r);
             } while (c.moveToNext());
@@ -159,13 +160,15 @@ public class SFsysDAOImp implements SFsysDAO{
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         if (c.moveToFirst())
         {
+
+            Log.d("Allcuservec.getS(6):",c.getString(6));
             do {
                 Date dt = null;
                 try {
                     dt = sdf.parse(c.getString(6));
                 } catch (ParseException e) {
                     e.printStackTrace();
-                    Log.d("ERR","日期轉換錯誤~");
+                    Log.d("ERR","IMP-getAllcuserve-日期轉換錯誤~");
                 }
 
                 customer person = new customer(
