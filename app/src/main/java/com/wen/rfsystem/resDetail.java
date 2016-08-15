@@ -3,6 +3,8 @@ package com.wen.rfsystem;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -12,21 +14,43 @@ public class resDetail extends AppCompatActivity {
     customer p;
     reserve ord;
     int pos;
+    SFsysDAO dao;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_res_detail);
-
+        Log.d("resDetail","1");
         Intent it = getIntent();
         pos = it.getIntExtra("pos", 0);
         //res _id
+        Log.d("resDetail","2");
+        dao =new SFsysDAOImp(resDetail.this);
+        reserve r=dao.checkres(pos);
+        Log.d("resDetail","3");
+        tv = (TextView) findViewById(R.id.textView);
+        ed4 = (EditText) findViewById(R.id.editText4);
+        ed5 = (EditText) findViewById(R.id.editText5);
+        Log.d("resDetail","4");
+        //tv.setText((int) r._id);
+        //ed4.setText(String.valueOf(r.checkin));
+       // ed5.setText(String.valueOf(r.checkout));
+        Log.d("resDetail","5");
+    }
 
-        SFsysDAO dao =new SFsysDAOImp(resDetail.this);
-
-
+    public void click_update(View v)
+    {
 
     }
+
+    public void click_del(View v)
+    {
+
+
+        finish();
+    }
+
 }
 /*
 
