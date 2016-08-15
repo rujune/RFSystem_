@@ -19,7 +19,7 @@ import java.util.Locale;
 public class SFsysDAOImp implements SFsysDAO{
 
     SQLiteDatabase db;
-
+    String pattern2 = "EEE MMM d HH:mm:ss Z yyyy";
     public SFsysDAOImp(Context context){
 
         MyDBHelp helper = new MyDBHelp(context);
@@ -64,21 +64,29 @@ public class SFsysDAOImp implements SFsysDAO{
 
     @Override
     public customer checkcus(long id) {
-
-
+        id=id-1;
+        //Log.d("ID=", String.valueOf(id));
+        //Log.d("ERR","1");
         Cursor c = db.rawQuery("Select * from customer", null);
-        Date dt = null;
-        SimpleDateFormat sdf = new SimpleDateFormat("FFF MMM dd HH:mm:ss 'GMT' yyyy");
-
-
+        //SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM d HH:mm:ss Z yyyy", Locale.TAIWAN);
+        //Log.d("ERR","2");
         c.moveToPosition((int) id);
-                try {
-                    dt = sdf.parse(c.getString(6));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                    Log.d("ERR","IMP-getAllcuserve-日期轉換錯誤~");
-                }
+       // Log.d("getString(6)",c.getString(6));
+        //Log.d("ERR","3");
 
+
+        Date dt = null;
+        try {
+            dt = new SimpleDateFormat(pattern2, Locale.ENGLISH).parse(c.getString(6));
+        } catch (ParseException e) {
+            e.printStackTrace();
+            Log.d("ERR","IMP-checkcus-日期轉換錯誤~");
+        }
+
+
+
+
+        //Log.d("ERR","4");
                 customer person = new customer(
                         c.getInt(2),
                         c.getInt(3) ,
@@ -90,7 +98,7 @@ public class SFsysDAOImp implements SFsysDAO{
                         c.getString(8),
                         c.getString(9)
                 );
-
+        //Log.d("ERR","10");
                 person._id=c.getInt(0);
             return person;
     }
@@ -159,15 +167,30 @@ public class SFsysDAOImp implements SFsysDAO{
     public List getAllreserve() {
         ArrayList<reserve> mylist = new ArrayList<>();
 
+
+
+
+
+
         Cursor c = db.rawQuery("Select * from reserve", null);
-        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss 'GMT' yyyy",Locale.TAIWAN);
+        //SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss 'GMT'Z yyyy", Locale.TAIWAN);
+
+
+
 
         if (c.moveToFirst())
         {
 
-
             do {
+
                 Date dt = null;
+                try {
+                    dt = new SimpleDateFormat(pattern2, Locale.ENGLISH).parse(c.getString(6));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    Log.d("ERR","IMP-getAllreserve-日期轉換錯誤~");
+                }
+                /*Date dt = null;
                 try {
                     Log.d("ERR res.getS(6):",c.getString(6));
                     dt = sdf.parse(c.getString(6));
@@ -175,7 +198,7 @@ public class SFsysDAOImp implements SFsysDAO{
                     e.printStackTrace();
                     Log.d("ERR","IMP-getAllreserve-日期轉換錯誤~");
                 }
-
+*/
                 reserve r = new reserve(c.getInt(1),c.getInt(2),c.getInt(3),
                         (c.getInt(4) == 1)? true : false,(c.getInt(5) == 1)? true : false,
                         dt,
@@ -191,15 +214,17 @@ public class SFsysDAOImp implements SFsysDAO{
     public List getAllcuserve() {
         ArrayList<customer> mylist = new ArrayList<>();
         Cursor c = db.rawQuery("Select * from customer", null);
-        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss 'GMT' yyyy");
+       // SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss 'GMT'Z yyyy");
         if (c.moveToFirst())
         {
 
             Log.d("Allcuservec.getS(6):",c.getString(6));
             do {
+
+
                 Date dt = null;
                 try {
-                    dt = sdf.parse(c.getString(6));
+                    dt = new SimpleDateFormat(pattern2, Locale.ENGLISH).parse(c.getString(6));
                 } catch (ParseException e) {
                     e.printStackTrace();
                     Log.d("ERR","IMP-getAllcuserve-日期轉換錯誤~");
