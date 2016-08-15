@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity{
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
-                textDate.setText(year + "/" + (monthOfYear+1) + "/" + dayOfMonth);
+        textDate.setText(year + "/" + (monthOfYear+1) + "/" + dayOfMonth);
             }
         },calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH));
@@ -88,8 +88,6 @@ public class MainActivity extends AppCompatActivity{
             }
 
         });
-
-
     }
 
 
@@ -138,7 +136,6 @@ public class MainActivity extends AppCompatActivity{
         Intent it = new Intent(MainActivity.this, cusDetail.class);
         startActivity(it);
     }
-
 
     public void goSet(View v){
         Intent it = new Intent(MainActivity.this, setting.class);

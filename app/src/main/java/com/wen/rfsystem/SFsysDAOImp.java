@@ -62,6 +62,38 @@ public class SFsysDAOImp implements SFsysDAO{
                 "' Where id='" + person._id + "'" );
     }
 
+    @Override
+    public customer checkcus(long id) {
+
+
+        Cursor c = db.rawQuery("Select * from customer", null);
+        Date dt = null;
+        SimpleDateFormat sdf = new SimpleDateFormat("FFF MMM dd HH:mm:ss 'GMT' yyyy");
+
+
+        c.moveToPosition((int) id);
+                try {
+                    dt = sdf.parse(c.getString(6));
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                    Log.d("ERR","IMP-getAllcuserve-日期轉換錯誤~");
+                }
+
+                customer person = new customer(
+                        c.getInt(2),
+                        c.getInt(3) ,
+                        c.getString(4) ,
+                        c.getInt(5) ,
+                        c.getString(1) ,
+                        dt ,
+                        c.getString(7) ,
+                        c.getString(8),
+                        c.getString(9)
+                );
+
+                person._id=c.getInt(0);
+            return person;
+    }
 
 
 //-------------------------------------------

@@ -12,6 +12,7 @@ public interface SFsysDAO {
     public long cusadd(customer person);  //顧客資料SQLite新增 刪除 修改
     public void cusdel(customer person);
     public void cusupdata(customer person);
+    public customer  checkcus(long id);  //傳回指定編號的顧客資料
 
     public long resadd(reserve reserve);  //訂位資料SQLite新增 刪除 修改
     public void resdel(reserve reserve);
