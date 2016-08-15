@@ -96,7 +96,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="預約日期："
             android:id="@+id/textView3"
-            android:layout_row="5"
+            android:layout_row="6"
             android:layout_column="0" />
 
         <EditText
@@ -105,9 +105,11 @@
             android:inputType="date"
             android:ems="10"
             android:id="@+id/DateeditText"
-            android:layout_row="5"
+            android:layout_row="6"
             android:layout_column="1"
-            android:hint="請輸入預約日期" />
+            android:hint="請輸入預約日期"
+            android:onClick="setDate"
+            android:clickable="true" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -115,7 +117,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="預約時間："
             android:id="@+id/textView15"
-            android:layout_row="6"
+            android:layout_row="7"
             android:layout_column="0" />
 
         <EditText
@@ -125,7 +127,7 @@
             android:ems="10"
             android:id="@+id/TIMEeditText"
             android:hint="請輸入預約時間"
-            android:layout_row="6"
+            android:layout_row="7"
             android:layout_column="1" />
 
         <TextView
@@ -135,17 +137,17 @@
             android:text="備註："
             android:id="@+id/textView16"
             android:layout_weight="0.01"
-            android:layout_row="7"
+            android:layout_row="8"
             android:layout_column="0" />
 
         <EditText
-            android:layout_width="246dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/PSEDText"
             android:layout_weight="0.04"
             android:hint="請輸入備註"
             android:allowUndo="true"
-            android:layout_row="7"
+            android:layout_row="8"
             android:layout_column="1" />
 
     </GridLayout>
@@ -172,7 +174,8 @@
             android:id="@+id/button7"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:onClick="cancel" />
     </RelativeLayout>
 
 </LinearLayout>

@@ -17,7 +17,7 @@ public interface SFsysDAO {
     public long resadd(reserve reserve);  //訂位資料SQLite新增 刪除 修改
     public void resdel(reserve reserve);
     public void resupdata(reserve reserve);
-
+    public reserve  checkres(long id);  //傳回指定編號的顧客資料
 
     public void jasonsave();              //讀寫JSON (用匯出/儲存/備分)
     public void jasonload();

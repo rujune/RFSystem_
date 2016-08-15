@@ -151,6 +151,32 @@ public class SFsysDAOImp implements SFsysDAO{
                 "' Where id='" + reserve._id + "'" );
     }
 
+    @Override
+    public reserve checkres(long id) {
+Log.d("INTO","checkres~");
+        id=id-1;
+        Cursor c = db.rawQuery("Select * from reserve", null);
+        c.moveToPosition((int) id);
+
+        Date dt = null;
+        try {
+            dt = new SimpleDateFormat(pattern2, Locale.ENGLISH).parse(c.getString(6));
+        } catch (ParseException e) {
+            e.printStackTrace();
+            Log.d("ERR","IMP-checkcus-日期轉換錯誤~");
+        }
+
+
+
+        reserve r = new reserve(c.getInt(1),c.getInt(2),c.getInt(3),
+                                (c.getInt(4) == 1)? true : false,(c.getInt(5) == 1)? true : false,
+                                dt,
+                                c.getString(7),c.getString(8));
+
+        r._id=c.getInt(0);
+        return r;
+
+    }
 
 
     @Override   //備分用  晚點再寫

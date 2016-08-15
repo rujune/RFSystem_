@@ -1,25 +1,40 @@
 package com.wen.rfsystem;
 
+import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import static java.lang.Integer.parseInt;
 
 public class add extends AppCompatActivity {
-
+    EditText DateeditText;
+    private DatePickerDialog datePickerDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add);
 
+        Calendar mCal = Calendar.getInstance();
+        String dateformat = "yyyy/MM/dd";
+        SimpleDateFormat df = new SimpleDateFormat(dateformat);
+        String today = df.format(mCal.getTime());
+
+        EditText DateeditText = (EditText) findViewById(R.id.DateeditText);
+        DateeditText.setText(today);
+
     }
+
 
     public void click_add(View v)
     {
@@ -37,6 +52,8 @@ public class add extends AppCompatActivity {
             e.printStackTrace();
             Log.d("ERR","日期轉換錯誤~");
         }
+
+
 
         SFsysDAO dao = new SFsysDAOImp(add.this);
         customer a=new customer(1,   //性別
@@ -71,12 +88,34 @@ public class add extends AppCompatActivity {
 
     }
 
-    public String getDateTime(){
-        SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
-        Date date = new Date();
-        String strDate = sdFormat.format(date);
-        //System.out.println(strDate);
-        return strDate;
+    public void setDate(View v){
+
+        GregorianCalendar calendar = new GregorianCalendar();
+        DateeditText = (EditText) findViewById(R.id.DateeditText);
+
+        Calendar mCal = Calendar.getInstance();
+        String dateformat = "yyyy/MM/dd";
+        SimpleDateFormat df = new SimpleDateFormat(dateformat);
+
+        // 實作DatePickerDialog的onDateSet方法，設定日期後將所設定的日期show在textDate上
+        datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+            //將設定的日期顯示出來
+
+
+            @Override
+            public void onDateSet(DatePicker view, int year, int monthOfYear,
+                                  int dayOfMonth) {
+                DateeditText.setText(year + "/" + (monthOfYear+1) + "/" + dayOfMonth);
+            }
+        },calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
+        calendar.get(Calendar.DAY_OF_MONTH));
+
+    }
+
+    public void cancel(View v){
+
+        finish();
+
     }
 
 

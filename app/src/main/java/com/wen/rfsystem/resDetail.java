@@ -1,14 +1,31 @@
 package com.wen.rfsystem;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class resDetail extends AppCompatActivity {
+    TextView tv;
+    EditText ed4, ed5;
+    customer p;
+    reserve ord;
+    int pos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_res_detail);
+
+        Intent it = getIntent();
+        pos = it.getIntExtra("pos", 0);
+        //res _id
+
+        SFsysDAO dao =new SFsysDAOImp(resDetail.this);
+
+
+
     }
 }
 /*

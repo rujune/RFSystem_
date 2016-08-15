@@ -43,10 +43,7 @@ public class MyDBHelp extends SQLiteOpenHelper {
                                             "service VARCHAR)";
 
 
-
-
-
-//建構方法
+    //建構方法
    public MyDBHelp(Context context) {
         super(context,"myDB", null, 1);
 

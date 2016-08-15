@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity{
         SimpleDateFormat df = new SimpleDateFormat(dateformat);
         String today = df.format(mCal.getTime());
         textDate.setText(today);
-
         // 實作DatePickerDialog的onDateSet方法，設定日期後將所設定的日期show在textDate上
         datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
             //將設定的日期顯示出來
@@ -58,7 +57,7 @@ public class MainActivity extends AppCompatActivity{
         textDate.setText(year + "/" + (monthOfYear+1) + "/" + dayOfMonth);
             }
         },calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH));
+         calendar.get(Calendar.DAY_OF_MONTH));
 
 
 
