@@ -11,6 +11,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+
 /**
  * Created by wen on 2016/8/7.
  */
@@ -126,7 +128,7 @@ public class SFsysDAOImp implements SFsysDAO{
         ArrayList<reserve> mylist = new ArrayList<>();
 
         Cursor c = db.rawQuery("Select * from reserve", null);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("FFF MMM dd HH:mm:ss 'GMT' yyyy");
 
         if (c.moveToFirst())
         {
@@ -157,7 +159,7 @@ public class SFsysDAOImp implements SFsysDAO{
     public List getAllcuserve() {
         ArrayList<customer> mylist = new ArrayList<>();
         Cursor c = db.rawQuery("Select * from customer", null);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdf = new SimpleDateFormat("FFF MMM dd HH:mm:ss 'GMT' yyyy");
         if (c.moveToFirst())
         {
 
