@@ -124,7 +124,6 @@ public class MainActivity extends AppCompatActivity{
     public void setDate(View v) {
         datePickerDialog.show();
     }
-
     public void goRes(View v){
         Intent it = new Intent(MainActivity.this, resDetail.class);
         startActivity(it);

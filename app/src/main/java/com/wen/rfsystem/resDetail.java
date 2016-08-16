@@ -33,9 +33,11 @@ public class resDetail extends AppCompatActivity {
         ed4 = (EditText) findViewById(R.id.editText4);
         ed5 = (EditText) findViewById(R.id.editText5);
         Log.d("resDetail","4");
-        //tv.setText((int) r._id);
-        //ed4.setText(String.valueOf(r.checkin));
-       // ed5.setText(String.valueOf(r.checkout));
+       tv.setText(String.valueOf((int) r._id));
+       ed4.setText(String.valueOf(r.checkin));
+       ed5.setText(String.valueOf(r.checkout));
+        //Log.d("resDetail-checkin",String.valueOf(r.checkin));
+        //Log.d("resDetail-checkout",String.valueOf(r.checkout));
         Log.d("resDetail","5");
     }
 

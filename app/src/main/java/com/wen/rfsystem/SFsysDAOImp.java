@@ -169,10 +169,15 @@ Log.d("INTO","checkres~");
 
         Log.d("checkres","2");
 
+        boolean a=(c.getInt(4) == 1)? true : false;
+        boolean b=(c.getInt(5) == 1)? true : false;
+
         reserve r = new reserve(c.getInt(1),c.getInt(2),c.getInt(3),
-                                (c.getInt(4) == 1)? true : false,(c.getInt(5) == 1)? true : false,
+                                a,b,
                                 dt,
-                                c.getString(7),c.getString(8));Log.d("OK","2.5");
+                                c.getString(7),c.getString(8));
+
+        Log.d("checkres OK","2.5");
 
         r._id=c.getInt(0);
         Log.d("checkres","3");
@@ -196,15 +201,8 @@ Log.d("INTO","checkres~");
     public List getAllreserve() {
         ArrayList<reserve> mylist = new ArrayList<>();
 
-
-
-
-
-
         Cursor c = db.rawQuery("Select * from reserve", null);
         //SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd HH:mm:ss 'GMT'Z yyyy", Locale.TAIWAN);
-
-
 
 
         if (c.moveToFirst())
@@ -228,8 +226,11 @@ Log.d("INTO","checkres~");
                     Log.d("ERR","IMP-getAllreserve-日期轉換錯誤~");
                 }
 */
+                boolean a=(c.getInt(4) == 1)? true : false;
+                boolean b=(c.getInt(5) == 1)? true : false;
+
                 reserve r = new reserve(c.getInt(1),c.getInt(2),c.getInt(3),
-                        (c.getInt(4) == 1)? true : false,(c.getInt(5) == 1)? true : false,
+                        a,b,
                         dt,
                         c.getString(7),c.getString(8));
                 r._id=c.getInt(0);
