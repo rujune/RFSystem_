@@ -63,7 +63,7 @@
             android:layout_height="wrap_content"
             android:text="新增訂位"
             android:id="@+id/button2"
-            android:onClick="click_add" />
+            android:onClick="goAdd" />
 
         <TextView
                 android:layout_width="124dp"

@@ -138,6 +138,12 @@ public class MainActivity extends AppCompatActivity{
         Intent it = new Intent(MainActivity.this, setting.class);
         startActivity(it);
     }
+    public void goAdd(View v){
+        Intent it = new Intent(MainActivity.this, add.class);
+        startActivity(it);
+    }
+
+
 }
 
 
