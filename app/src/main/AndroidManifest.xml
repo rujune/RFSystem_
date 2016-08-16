@@ -7,10 +7,7 @@
         android:icon="@mipmap/ic_launcher"
         android:label="訂位紀錄系統"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-
-        >
-
+        android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +18,9 @@
         <activity android:name=".add" />
         <activity android:name=".resDetail" />
         <activity android:name=".cusDetail" />
-        <activity android:name=".setting"></activity>
+        <activity android:name=".setting" />
+        <activity android:name=".cuslistActive" />
+        <activity android:name=".reslistActivity"></activity>
     </application>
 
 </manifest>

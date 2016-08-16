@@ -1,18 +1,7 @@
 package com.wen.rfsystem;
 
 import java.util.Date;
-
-/**
- *
- * Created by Student on 2016/8/8.
- * 訂位資料ＣＬＡＳＳ
- *
- */
 public class reserve {
-
-
-
-
 
 //建構
     public reserve(
