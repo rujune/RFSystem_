@@ -9,10 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class resDetail extends AppCompatActivity {
-    TextView tv;
-    EditText ed4, ed5;
-    customer p;
-    reserve ord;
+
     int pos;
     SFsysDAO dao;
 
@@ -28,17 +25,8 @@ public class resDetail extends AppCompatActivity {
         Log.d("resDetail","2");
         dao =new SFsysDAOImp(resDetail.this);
         reserve r=dao.checkres(pos);
-        Log.d("resDetail","3");
-        tv = (TextView) findViewById(R.id.textView);
-        ed4 = (EditText) findViewById(R.id.editText4);
-        ed5 = (EditText) findViewById(R.id.editText5);
-        Log.d("resDetail","4");
-       tv.setText(String.valueOf((int) r._id));
-       ed4.setText(String.valueOf(r.checkin));
-       ed5.setText(String.valueOf(r.checkout));
-        //Log.d("resDetail-checkin",String.valueOf(r.checkin));
-        //Log.d("resDetail-checkout",String.valueOf(r.checkout));
-        Log.d("resDetail","5");
+
+
     }
 
     public void click_update(View v)
@@ -48,7 +36,6 @@ public class resDetail extends AppCompatActivity {
 
     public void click_del(View v)
     {
-
 
         finish();
     }

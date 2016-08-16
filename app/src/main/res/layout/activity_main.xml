@@ -28,7 +28,7 @@
             android:id="@+id/resButton"
             android:layout_gravity="center_horizontal"
             android:onClick="goRes"
-            android:src="@drawable/clean"
+            android:src="@drawable/calendar"
             android:layout_weight="1" />
 
         <ImageButton
