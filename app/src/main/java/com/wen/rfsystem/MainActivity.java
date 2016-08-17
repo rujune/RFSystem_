@@ -5,6 +5,7 @@ package com.wen.rfsystem;
 * */
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,14 +32,17 @@ public class MainActivity extends AppCompatActivity{
     TextView textDate;
     private DatePickerDialog datePickerDialog;
     List<reserve> mylist;
-
     public MainActivity() {
         super();
     }
+
+    Intent it;//宣告廣播
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         GregorianCalendar calendar = new GregorianCalendar();
          textDate = (TextView) findViewById(R.id.datetext);
@@ -86,7 +90,29 @@ public class MainActivity extends AppCompatActivity{
             }
 
         });
+
+        //Broadcast廣播
+        it = new Intent(MainActivity.this, MyService.class);
+
+        MyReceiver receiver = new MyReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.addAction(Intent.ACTION_SCREEN_ON);
+        filter.addAction(Intent.ACTION_SCREEN_OFF);
+        filter.addAction(Intent.ACTION_BOOT_COMPLETED);
+
+        filter.setPriority(100);
+        registerReceiver(receiver, filter);
     }
+    public void click1(View v)
+    {
+        startService(it);
+    }
+
+    public void click2(View v)
+    {
+        stopService(it);
+    }
+
 
 
 
@@ -141,8 +167,8 @@ public class MainActivity extends AppCompatActivity{
     public void goAdd(View v){
         Intent it = new Intent(MainActivity.this, add.class);
         startActivity(it);
-    }
 
+    }
 
 }
 

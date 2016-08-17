@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wen.rfsystem">
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -20,7 +21,21 @@
         <activity android:name=".cusDetail" />
         <activity android:name=".setting" />
         <activity android:name=".cuslistActive" />
-        <activity android:name=".reslistActivity"></activity>
+        <activity android:name=".reslistActivity" />
+
+        <receiver
+            android:name=".MyReceiver"
+            android:enabled="true"
+            android:exported="true">
+
+        </receiver>
+
+        <service
+            android:name=".MyService"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+
     </application>
 
 </manifest>
