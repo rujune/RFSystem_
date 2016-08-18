@@ -10,6 +10,7 @@ import android.util.Log;
 /**
  * Created by Student on 2016/8/18.
  */
+//使用WakefulBroadcastReceiver
 public class MyAlarm extends WakefulBroadcastReceiver {
 
     @Override
@@ -27,6 +28,7 @@ public class MyAlarm extends IntentService {
     public MyAlarm() {
         super("MyAlarm");
     }
+
     @Override
     protected void onHandleIntent(Intent intent) {
         // At this point SimpleWakefulReceiver is still holding a wake lock
